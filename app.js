@@ -1,200 +1,143 @@
 const stages = [
-  {
-    name: "Think",
-    tone: "Founder office-hours",
-    questions: [
-      {
-        id: "idea",
-        title: "What are you trying to make real?",
-        why: "Start from the user-visible promise, not the technology or the category.",
-        recommendation: "I am building [product] for [specific user] so they can [valuable outcome] without [painful current workaround]."
-      },
-      {
-        id: "user",
-        title: "Who feels this pain sharply enough to change behavior?",
-        why: "A good first market is narrow, reachable, and already looking for relief.",
-        recommendation: "The first user is [role/persona] who currently [observable behavior] and loses [time, money, status, quality, or momentum] because of it."
-      },
-      {
-        id: "job",
-        title: "What job are they hiring this product to do?",
-        why: "The job gives you a testable promise. Features are negotiable. The job is not.",
-        recommendation: "When [trigger happens], the user needs to [make progress], so they can [larger goal]. Today they use [alternative]."
-      }
-    ]
-  },
-  {
-    name: "Grill",
-    tone: "Relentless interrogation",
-    questions: [
-      {
-        id: "stakes",
-        title: "What happens if the user ignores this problem for another year?",
-        why: "If nothing meaningfully breaks, the product may be nice-to-have.",
-        recommendation: "If ignored, they will [specific worsening consequence], which costs about [amount/time/risk] and creates pressure from [customer, boss, market, internal goal]."
-      },
-      {
-        id: "secret",
-        title: "What do you believe that the obvious version of this idea misses?",
-        why: "This is where founder taste shows up: an insight, a wedge, or a constraint that changes the product.",
-        recommendation: "Most people think [common assumption]. I think [contrarian or underappreciated truth], because [evidence or lived observation]."
-      },
-      {
-        id: "whyNow",
-        title: "Why can this work now when it could not work before?",
-        why: "Timing turns a plausible idea into a live opportunity.",
-        recommendation: "This is newly possible because [technology/platform/regulation/behavior/distribution change], and the old blocker was [blocker]."
-      }
-    ]
-  },
-  {
-    name: "Plan",
-    tone: "Scope review",
-    questions: [
-      {
-        id: "wedge",
-        title: "What is the smallest useful wedge?",
-        why: "The wedge should make one user meaningfully better off, quickly.",
-        recommendation: "The first version only does [one workflow] for [one user segment], and it is successful if [measurable user action] happens."
-      },
-      {
-        id: "scope",
-        title: "What are you refusing to build at first?",
-        why: "Scope discipline protects learning speed. A product with no exclusions is usually an idea still hiding from reality.",
-        recommendation: "Version one will not include [feature], [audience], or [workflow], even though they are tempting, because [reason tied to learning]."
-      },
-      {
-        id: "workflow",
-        title: "What exact workflow does the product need to improve?",
-        why: "A workflow reveals screens, data, integrations, and proof of value.",
-        recommendation: "The user starts with [input/context], takes [3-5 key steps], and ends with [finished artifact or decision]."
-      }
-    ]
-  },
-  {
-    name: "Build",
-    tone: "Implementation brief",
-    questions: [
-      {
-        id: "mvp",
-        title: "What should a builder implement first?",
-        why: "A good build brief translates product judgment into concrete behavior.",
-        recommendation: "Build [core interaction], with [inputs], [state], [output], and [one retention or sharing loop]."
-      },
-      {
-        id: "data",
-        title: "What data must exist for the product to feel alive?",
-        why: "Data shape is often the real product shape.",
-        recommendation: "The product stores [entities], each with [fields], and the most important state transition is [from X to Y]."
-      },
-      {
-        id: "ux",
-        title: "Where can the interface remove thinking instead of adding options?",
-        why: "Great first products feel obvious because the hard decision has already been made for the user.",
-        recommendation: "The UI should default to [decision], hide [complexity], and make [primary action] the obvious next move."
-      }
-    ]
-  },
-  {
-    name: "Review",
-    tone: "Risk inspection",
-    questions: [
-      {
-        id: "failure",
-        title: "What is the most likely reason this fails?",
-        why: "Naming failure modes early makes the idea stronger, not weaker.",
-        recommendation: "The biggest risk is [adoption/value/distribution/technical/trust], because [specific weak assumption]."
-      },
-      {
-        id: "competition",
-        title: "What will users compare this against?",
-        why: "The competitor is often a spreadsheet, a group chat, a person, or doing nothing.",
-        recommendation: "Users will compare this to [current tool/workaround]. We win only if we are [faster/cheaper/more trusted/more delightful] by [clear margin]."
-      },
-      {
-        id: "trust",
-        title: "What would make a skeptical user trust it?",
-        why: "Trust is part of the product, especially when the idea changes a decision or workflow.",
-        recommendation: "Trust comes from [proof, controls, transparency, human review, examples, guarantees], shown at [moment in workflow]."
-      }
-    ]
-  },
-  {
-    name: "Test",
-    tone: "QA and validation",
-    questions: [
-      {
-        id: "validation",
-        title: "What is the fastest real-world test?",
-        why: "The best validation creates contact with reality before the full product exists.",
-        recommendation: "In [timeframe], I can test this by [concierge, landing page, prototype, manual workflow] with [number] target users."
-      },
-      {
-        id: "success",
-        title: "What signal proves the idea is getting sharper?",
-        why: "Good metrics track changed behavior, not compliments.",
-        recommendation: "The signal is [activation, repeat use, payment, referral, time saved, conversion], and the threshold is [number] by [date]."
-      },
-      {
-        id: "qa",
-        title: "What would you test before showing this to the next user?",
-        why: "A product idea improves when every demo teaches you what broke.",
-        recommendation: "Before the next user sees it, I would test [happy path], [edge case], [empty state], and [failure recovery]."
-      }
-    ]
-  },
-  {
-    name: "Ship",
-    tone: "Launch and retro",
-    questions: [
-      {
-        id: "distribution",
-        title: "How will the first ten users discover it?",
-        why: "Distribution is not a later department. It changes what you should build first.",
-        recommendation: "The first ten users come from [channel/community/personal outreach], using [specific message], because they already gather at [place]."
-      },
-      {
-        id: "launch",
-        title: "What is the launch promise in one sentence?",
-        why: "If the promise cannot fit in one sentence, the product may still be too blurry.",
-        recommendation: "For [user], ForgeRoom helps you [outcome] in [timeframe] without [pain]."
-      },
-      {
-        id: "retro",
-        title: "After launch, what will you learn and change first?",
-        why: "A tight feedback loop keeps the product alive after the first shipment.",
-        recommendation: "After launch I will review [metric/user feedback/session recordings/support requests], then decide whether to [double down, narrow, pivot, or kill]."
-      }
-    ]
-  }
+  { name: "Think", tone: "GStack office-hours" },
+  { name: "Grill", tone: "Relentless Grill Me" },
+  { name: "Plan", tone: "Narrowest wedge" },
+  { name: "Review", tone: "Premise challenge" },
+  { name: "Alternatives", tone: "Approaches considered" },
+  { name: "Test", tone: "Validation" },
+  { name: "Ship", tone: "Launch and retro" }
 ];
 
-const STORAGE_KEY = "forgeroom.session.v1";
+const fallbackQuestions = {
+  startup: [
+    {
+      id: "idea",
+      stage: "Think",
+      title: "What are you trying to make real?",
+      why: "Start with the user-visible promise, not the technology or category.",
+      recommendation: "I am building [product] for [specific user] so they can [valuable outcome] without [painful current workaround]."
+    },
+    {
+      id: "demand",
+      stage: "Grill",
+      title: "What's the strongest evidence that someone actually wants this?",
+      why: "GStack office-hours starts with demand reality: behavior beats compliments, waitlists, and market vibes.",
+      recommendation: "The strongest evidence is [specific behavior/payment/repeat usage], from [specific person/company], when [situation happened]."
+    },
+    {
+      id: "statusQuo",
+      stage: "Grill",
+      title: "What are users doing right now to solve this problem, even badly?",
+      why: "The status quo is the real competitor. If nobody works around the pain, the pain may not be urgent.",
+      recommendation: "Today they use [tool/process/person], which costs [time/money/risk/status] every [day/week/month]."
+    },
+    {
+      id: "human",
+      stage: "Grill",
+      title: "Name the actual human who needs this most.",
+      why: "A category cannot buy. A specific person with a specific consequence can.",
+      recommendation: "The first user is [name/title], who gets promoted for [outcome], gets fired for [failure], and worries about [specific consequence]."
+    },
+    {
+      id: "wedge",
+      stage: "Plan",
+      title: "What's the smallest version someone would pay for this week?",
+      why: "The narrowest wedge forces the idea to prove value before it grows into a platform.",
+      recommendation: "The wedge is [one workflow/output], delivered to [one user], and worth paying for because [specific urgent result]."
+    },
+    {
+      id: "observation",
+      stage: "Test",
+      title: "Have you watched a user try this or the workaround without helping them? What surprised you?",
+      why: "Surprise is where product truth leaks through. Surveys and demos are weaker evidence.",
+      recommendation: "I watched [person] do [workflow]. The surprising part was [unexpected behavior], which changes the product because [implication]."
+    },
+    {
+      id: "futureFit",
+      stage: "Review",
+      title: "If the world changes meaningfully in three years, does this become more essential or less?",
+      why: "Future-fit turns trend talk into a product thesis.",
+      recommendation: "This becomes more essential because [specific change] makes [user pain] worse or more frequent, and our wedge benefits by [mechanism]."
+    },
+    {
+      id: "distribution",
+      stage: "Ship",
+      title: "How will the first ten users discover it?",
+      why: "Distribution changes what you should build first.",
+      recommendation: "The first ten users come from [specific channel/community/outreach list], using [message], because they already gather at [place]."
+    }
+  ],
+  builder: [
+    {
+      id: "idea",
+      stage: "Think",
+      title: "What are you trying to make real?",
+      why: "Start with the thing someone can actually use or show.",
+      recommendation: "I am building [thing] for [person/community] so they can [cool outcome] without [current friction]."
+    },
+    {
+      id: "coolest",
+      stage: "Grill",
+      title: "What's the coolest version of this?",
+      why: "Builder mode optimizes for the version that makes someone say 'whoa'.",
+      recommendation: "The coolest version would [surprising interaction/output], especially when [moment] happens."
+    },
+    {
+      id: "show",
+      stage: "Grill",
+      title: "Who would you show this to first, and what would make them say 'whoa'?",
+      why: "A shareable first audience gives the project shape.",
+      recommendation: "I would show [specific person/group]. They would say 'whoa' if [specific visible moment] happened."
+    },
+    {
+      id: "fastest",
+      stage: "Plan",
+      title: "What's the fastest path to something you can actually use or share?",
+      why: "The best version is the one that exists.",
+      recommendation: "In [timebox], I can build [small demo] with [inputs], [core interaction], and [shareable output]."
+    },
+    {
+      id: "closest",
+      stage: "Review",
+      title: "What existing thing is closest, and how is yours different?",
+      why: "The comparison reveals what is genuinely new or delightful.",
+      recommendation: "The closest thing is [tool/project]. Mine differs by [specific behavior/taste/constraint]."
+    },
+    {
+      id: "tenx",
+      stage: "Alternatives",
+      title: "What would you add if you had unlimited time? What's the 10x version?",
+      why: "The 10x version helps choose a wedge that points in the right direction.",
+      recommendation: "The 10x version adds [capability], but the first step that points there is [small version]."
+    }
+  ]
+};
 
-const flattenedQuestions = stages.flatMap((stage, stageIndex) =>
-  stage.questions.map((question, questionIndex) => ({
-    ...question,
-    stage: stage.name,
-    tone: stage.tone,
-    stageIndex,
-    questionIndex
-  }))
-);
+const STORAGE_KEY = "forgeroom.session.v2";
+const legacyStorageKey = "forgeroom.session.v1";
 
 const state = loadState();
 
 const elements = {
+  aiToggle: document.querySelector("#aiToggle"),
   answerInput: document.querySelector("#answerInput"),
   answerTrail: document.querySelector("#answerTrail"),
+  apiStatus: document.querySelector("#apiStatus"),
+  alternativesList: document.querySelector("#alternativesList"),
+  alternativesSection: document.querySelector("#alternativesSection"),
   backButton: document.querySelector("#backButton"),
   completionMeter: document.querySelector("#completionMeter"),
   copyExportButton: document.querySelector("#copyExportButton"),
+  coachNoteBlock: document.querySelector("#coachNoteBlock"),
+  coachNoteText: document.querySelector("#coachNoteText"),
   currentStage: document.querySelector("#currentStage"),
   exportButton: document.querySelector("#exportButton"),
   exportDialog: document.querySelector("#exportDialog"),
   exportOutput: document.querySelector("#exportOutput"),
   ideaCore: document.querySelector("#ideaCore"),
   nextButton: document.querySelector("#nextButton"),
+  premiseChallenge: document.querySelector("#premiseChallenge"),
+  premiseSection: document.querySelector("#premiseSection"),
   previousAnswerBlock: document.querySelector("#previousAnswerBlock"),
   previousAnswerText: document.querySelector("#previousAnswerText"),
   pressureList: document.querySelector("#pressureList"),
@@ -206,50 +149,79 @@ const elements = {
   resetButton: document.querySelector("#resetButton"),
   saveStatus: document.querySelector("#saveStatus"),
   stageStrip: document.querySelector("#stageStrip"),
+  startupModeButton: document.querySelector("#startupModeButton"),
+  builderModeButton: document.querySelector("#builderModeButton"),
   useRecommendationButton: document.querySelector("#useRecommendationButton")
 };
+
+function defaultState(mode = "startup") {
+  return {
+    mode,
+    useAi: true,
+    currentQuestion: fallbackQuestions[mode][0],
+    currentFallbackIndex: 0,
+    answers: [],
+    skipped: [],
+    pressureNotes: ["The first answer should become specific enough that a stranger can tell who it is for and why now."],
+    premiseChallenge: "",
+    alternatives: [],
+    brief: {},
+    complete: false,
+    lastCoachNote: "",
+    source: "local"
+  };
+}
 
 function loadState() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (saved && typeof saved.currentIndex === "number" && saved.answers) {
-      return saved;
-    }
+    if (saved && saved.currentQuestion && Array.isArray(saved.answers)) return saved;
   } catch {
     localStorage.removeItem(STORAGE_KEY);
   }
-
-  return {
-    currentIndex: 0,
-    answers: {}
-  };
+  localStorage.removeItem(legacyStorageKey);
+  return defaultState();
 }
 
 function saveState() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
-function currentQuestion() {
-  return flattenedQuestions[Math.min(state.currentIndex, flattenedQuestions.length - 1)];
+function stageIndex(stageName) {
+  return Math.max(0, stages.findIndex(stage => stage.name === stageName));
+}
+
+function answeredCount() {
+  return state.answers.length;
+}
+
+function targetCount() {
+  return state.mode === "startup" ? 8 : 6;
 }
 
 function render() {
+  renderModes();
   renderStages();
   renderQuestion();
   renderBrief();
 }
 
+function renderModes() {
+  elements.aiToggle.checked = state.useAi;
+  elements.startupModeButton.classList.toggle("is-active", state.mode === "startup");
+  elements.builderModeButton.classList.toggle("is-active", state.mode === "builder");
+  elements.apiStatus.className = `api-pill ${state.source === "ai" ? "is-live" : "is-fallback"}`;
+  elements.apiStatus.textContent = state.source === "ai" ? "AI live" : "Local fallback";
+}
+
 function renderStages() {
   elements.stageStrip.innerHTML = "";
-  const answeredCount = Object.keys(state.answers).length;
-
+  const activeIndex = stageIndex(state.currentQuestion.stage);
   stages.forEach((stage, index) => {
-    const stageStart = stages.slice(0, index).reduce((count, item) => count + item.questions.length, 0);
-    const stageEnd = stageStart + stage.questions.length;
     const card = document.createElement("article");
     card.className = "stage-card";
-    if (index === currentQuestion().stageIndex) card.classList.add("is-active");
-    if (answeredCount >= stageEnd) card.classList.add("is-complete");
+    if (index === activeIndex) card.classList.add("is-active");
+    if (index < activeIndex || state.complete) card.classList.add("is-complete");
     card.innerHTML = `
       <span class="stage-number">${String(index + 1).padStart(2, "0")}</span>
       <span class="stage-name">${stage.name}</span>
@@ -259,20 +231,30 @@ function renderStages() {
 }
 
 function renderQuestion() {
-  const question = currentQuestion();
-  const previousQuestion = flattenedQuestions[state.currentIndex - 1];
-  elements.currentStage.textContent = `${question.stage} - ${question.tone}`;
-  elements.questionCount.textContent = `Question ${state.currentIndex + 1} of ${flattenedQuestions.length}`;
+  const question = state.currentQuestion;
+  const lastAnswer = state.answers[state.answers.length - 1];
+  elements.currentStage.textContent = `${question.stage} - ${stages[stageIndex(question.stage)]?.tone || "Adaptive coach"}`;
+  elements.questionCount.textContent = `${state.complete ? "Complete" : `Question ${answeredCount() + 1}`} of about ${targetCount()}`;
   elements.questionTitle.textContent = question.title;
   elements.questionWhy.textContent = question.why;
   elements.recommendedAnswer.textContent = question.recommendation;
-  elements.answerInput.value = state.answers[question.id] || "";
-  elements.backButton.disabled = state.currentIndex === 0;
-  elements.nextButton.textContent = state.currentIndex === flattenedQuestions.length - 1 ? "Finish & Export" : "Save & Next";
+  elements.answerInput.value = question.draft || "";
+  elements.answerInput.disabled = state.complete;
+  elements.backButton.disabled = state.answers.length === 0;
+  elements.nextButton.disabled = state.complete;
+  elements.nextButton.textContent = state.complete ? "Complete" : "Save & Coach";
 
-  if (previousQuestion && state.answers[previousQuestion.id]) {
+  if (state.lastCoachNote) {
+    elements.coachNoteBlock.hidden = false;
+    elements.coachNoteText.textContent = state.lastCoachNote;
+  } else {
+    elements.coachNoteBlock.hidden = true;
+    elements.coachNoteText.textContent = "";
+  }
+
+  if (lastAnswer) {
     elements.previousAnswerBlock.hidden = false;
-    elements.previousAnswerText.textContent = state.answers[previousQuestion.id];
+    elements.previousAnswerText.textContent = lastAnswer.answer;
   } else {
     elements.previousAnswerBlock.hidden = true;
     elements.previousAnswerText.textContent = "";
@@ -280,63 +262,58 @@ function renderQuestion() {
 }
 
 function renderBrief() {
-  const answeredCount = Object.keys(state.answers).length;
-  const completion = Math.round((answeredCount / flattenedQuestions.length) * 100);
+  const completion = state.complete ? 100 : Math.min(95, Math.round((answeredCount() / targetCount()) * 100));
   elements.completionMeter.textContent = `${completion}%`;
   elements.progressBar.style.width = `${completion}%`;
 
   const coreItems = [
-    ["Idea", state.answers.idea],
-    ["User", state.answers.user],
-    ["Job", state.answers.job],
-    ["Wedge", state.answers.wedge],
-    ["Signal", state.answers.success],
-    ["Launch", state.answers.launch]
+    ["Mode", state.mode === "startup" ? "Startup" : "Builder"],
+    ["Idea", state.brief.problemStatement || answerById("idea")],
+    ["User", state.brief.targetUser || answerById("human") || answerById("demand")],
+    ["Wedge", state.brief.narrowestWedge || answerById("wedge") || answerById("fastest")],
+    ["Signal", state.brief.successCriteria || answerById("observation")],
+    ["Launch", state.brief.distributionPlan || answerById("distribution")]
   ];
 
   elements.ideaCore.innerHTML = coreItems
     .map(([label, value]) => `<dt>${label}</dt><dd>${escapeHtml(shorten(value) || "Unanswered")}</dd>`)
     .join("");
 
-  const answeredQuestions = flattenedQuestions.filter(question => state.answers[question.id]);
-  elements.answerTrail.innerHTML = answeredQuestions.length
-    ? answeredQuestions
-        .map(question => `<li><strong>${escapeHtml(question.title)}</strong><br>${escapeHtml(shorten(state.answers[question.id], 190))}</li>`)
-        .join("")
+  elements.answerTrail.innerHTML = state.answers.length
+    ? state.answers.map(item => `<li><strong>${escapeHtml(item.questionTitle)}</strong><br>${escapeHtml(shorten(item.answer, 210))}</li>`).join("")
     : "<li>No answers yet.</li>";
 
-  elements.pressureList.innerHTML = buildPressureList()
-    .map(item => `<li>${escapeHtml(item)}</li>`)
-    .join("");
+  elements.pressureList.innerHTML = buildPressureList().map(item => `<li>${escapeHtml(item)}</li>`).join("");
+
+  elements.premiseSection.hidden = !state.premiseChallenge;
+  elements.premiseChallenge.textContent = state.premiseChallenge;
+
+  elements.alternativesSection.hidden = !state.alternatives.length;
+  elements.alternativesList.innerHTML = state.alternatives.map(item => `<li><strong>${escapeHtml(item.name || "Approach")}</strong><br>${escapeHtml(item.summary || item)}</li>`).join("");
+}
+
+function answerById(id) {
+  return state.answers.find(item => item.questionId === id)?.answer || "";
 }
 
 function buildPressureList() {
-  const answers = state.answers;
-  const items = [];
-
-  if (!answers.user) items.push("The first user is still undefined.");
-  if (!answers.stakes) items.push("The consequence of inaction is not yet sharp.");
-  if (!answers.wedge) items.push("The smallest useful wedge needs a hard boundary.");
-  if (!answers.failure) items.push("The leading failure mode has not been named.");
-  if (!answers.distribution) items.push("The first distribution channel is still missing.");
-
-  const allText = Object.values(answers).join(" ").toLowerCase();
+  const notes = [...(state.pressureNotes || [])];
+  const allText = state.answers.map(item => item.answer).join(" ").toLowerCase();
+  if (!allText.includes("pay") && !allText.includes("paid") && state.mode === "startup") {
+    notes.push("Demand evidence still needs payment, repeated usage, or a concrete workaround cost.");
+  }
   if (allText.includes("everyone") || allText.includes("anyone")) {
-    items.push("The audience may be too broad. Narrow until you can picture one reachable buyer.");
+    notes.push("Audience is drifting broad. Name a reachable human, not a category.");
   }
-  if (allText.includes("ai") && !allText.includes("trust")) {
-    items.push("AI is present, but trust mechanics may need to be explicit.");
+  if (state.skipped?.length) {
+    notes.push(`Smart-skipped: ${state.skipped.join(", ")}.`);
   }
-  if (allText.includes("marketplace")) {
-    items.push("Marketplace ideas need a cold-start plan for both supply and demand.");
-  }
-
-  return items.length ? items.slice(0, 6) : ["The brief has enough structure to become a PRD, prototype, or user interview script."];
+  return notes.length ? [...new Set(notes)].slice(0, 7) : ["The brief is ready for a PRD, prototype plan, or user interview script."];
 }
 
 function shorten(value, maxLength = 145) {
   if (!value) return "";
-  const trimmed = value.trim().replace(/\s+/g, " ");
+  const trimmed = String(value).trim().replace(/\s+/g, " ");
   return trimmed.length > maxLength ? `${trimmed.slice(0, maxLength - 1)}...` : trimmed;
 }
 
@@ -349,79 +326,285 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function lockAnswer() {
-  const question = currentQuestion();
+async function lockAnswer() {
+  if (state.complete) return;
   const answer = elements.answerInput.value.trim();
-
   if (!answer) {
     elements.answerInput.focus();
-    elements.answerInput.placeholder = "This question needs an answer before the brief can get sharper.";
+    elements.answerInput.placeholder = "The coach needs an answer before it can grill the next branch.";
     return;
   }
 
-  state.answers[question.id] = answer;
-  const wasFinalQuestion = state.currentIndex === flattenedQuestions.length - 1;
-  if (state.currentIndex < flattenedQuestions.length - 1) {
-    state.currentIndex += 1;
-  }
+  const question = state.currentQuestion;
+  state.answers.push({
+    questionId: question.id,
+    questionTitle: question.title,
+    stage: question.stage,
+    answer
+  });
+  elements.saveStatus.textContent = "Saved. Coach is reading your answer...";
+  elements.nextButton.disabled = true;
+  saveState();
+  renderBrief();
+
+  const coachResult = await getCoachResult();
+  applyCoachResult(coachResult);
   saveState();
   render();
-  elements.saveStatus.textContent = wasFinalQuestion
-    ? "Saved. Your product brief is ready."
-    : `Saved "${question.title}" and moved to the next question.`;
+  elements.saveStatus.textContent = state.complete ? "Saved. Your design brief is ready." : "Saved. Next question adapted to your answer.";
   elements.answerInput.focus();
 
-  if (wasFinalQuestion) {
-    openExport();
+  if (state.complete) openExport();
+}
+
+async function getCoachResult() {
+  if (state.useAi && location.protocol !== "file:") {
+    try {
+      const response = await fetch("/api/coach", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(publicSession())
+      });
+      if (response.ok) {
+        const result = await response.json();
+        return { ...result, source: "ai" };
+      }
+    } catch {
+      // Local fallback keeps the app usable from static hosts or file://.
+    }
   }
+  return localCoach(publicSession());
+}
+
+function publicSession() {
+  return {
+    mode: state.mode,
+    answers: state.answers,
+    skipped: state.skipped,
+    pressureNotes: state.pressureNotes,
+    currentFallbackIndex: state.currentFallbackIndex,
+    complete: state.complete
+  };
+}
+
+function applyCoachResult(result) {
+  state.source = result.source || "local";
+  state.lastCoachNote = result.coachNote || "";
+  state.pressureNotes = Array.isArray(result.pressureNotes) ? result.pressureNotes : state.pressureNotes;
+  state.skipped = Array.isArray(result.skipped) ? result.skipped : state.skipped;
+  state.premiseChallenge = result.premiseChallenge || state.premiseChallenge;
+  state.alternatives = Array.isArray(result.alternatives) ? result.alternatives : state.alternatives;
+  state.brief = result.brief || state.brief || {};
+  state.complete = Boolean(result.complete);
+
+  if (result.nextQuestion && !state.complete) {
+    state.currentQuestion = result.nextQuestion;
+    state.currentFallbackIndex = Math.max(state.currentFallbackIndex, fallbackIndexForQuestion(result.nextQuestion.id));
+  }
+
+  if (state.complete) {
+    state.currentQuestion = {
+      ...state.currentQuestion,
+      draft: state.answers[state.answers.length - 1]?.answer || ""
+    };
+  }
+}
+
+function fallbackIndexForQuestion(id) {
+  const index = fallbackQuestions[state.mode].findIndex(item => item.id === id);
+  return index >= 0 ? index : state.currentFallbackIndex;
+}
+
+function localCoach(session) {
+  const questions = fallbackQuestions[session.mode];
+  const lastAnswer = session.answers[session.answers.length - 1];
+  const answeredIds = new Set(session.answers.map(item => item.questionId));
+  const allText = session.answers.map(item => item.answer).join(" ").toLowerCase();
+  const skipped = [...(session.skipped || [])];
+  let nextIndex = Math.max(0, session.currentFallbackIndex + 1);
+
+  if (session.mode === "startup" && answeredIds.has("demand") && /3 years|future|trend|ai makes|world changes|more essential|less essential/.test(allText)) {
+    const futureFitIndex = questions.findIndex(item => item.id === "futureFit");
+    if (nextIndex === futureFitIndex) {
+      skipped.push("future-fit already covered by an earlier answer");
+      nextIndex += 1;
+    }
+  }
+
+  const nextQuestion = questions.find(question => !answeredIds.has(question.id) && questions.indexOf(question) >= nextIndex);
+  const pressureNotes = buildLocalPressureNotes(session);
+  const brief = synthesizeBrief(session);
+  const premiseChallenge = makePremiseChallenge(session);
+  const alternatives = makeAlternatives(session);
+  const complete = !nextQuestion || session.answers.length >= questions.length;
+
+  return {
+    source: "local",
+    complete,
+    nextQuestion: nextQuestion || questions[questions.length - 1],
+    skipped,
+    pressureNotes,
+    premiseChallenge,
+    alternatives,
+    brief,
+    coachNote: lastAnswer ? localCoachNote(lastAnswer.answer, session.mode) : ""
+  };
+}
+
+function buildLocalPressureNotes(session) {
+  const notes = [];
+  const allText = session.answers.map(item => item.answer).join(" ").toLowerCase();
+  if (session.mode === "startup") {
+    if (!/paid|pay|invoice|contract|repeat|workflow|scramble/.test(allText)) notes.push("Push harder on demand reality: name behavior, money, repeated use, or workaround cost.");
+    if (!/specific|first|founder|manager|operator|engineer|sales|ops|name|title/.test(allText)) notes.push("Target user is not yet concrete enough. GStack would ask for an actual human and consequence.");
+    if (!/smallest|wedge|first version|one workflow|this week/.test(allText)) notes.push("The narrowest wedge still needs a hard boundary.");
+  } else {
+    if (!/show|share|demo|whoa|cool/.test(allText)) notes.push("Builder mode needs a visible 'whoa' moment, not only utility.");
+    if (!/weekend|hour|day|fastest|prototype|demo/.test(allText)) notes.push("Name the fastest thing you can actually ship or show.");
+  }
+  return notes.length ? notes : ["The session has enough specificity to generate a useful design brief."];
+}
+
+function localCoachNote(answer, mode) {
+  if (mode === "startup" && /interesting|users|market|everyone|anyone/i.test(answer)) {
+    return "That answer still leans broad. I am going to force specificity before letting the idea become a platform.";
+  }
+  if (mode === "startup") return "Good. I am looking for concrete behavior, current workaround, named user, and smallest paid wedge.";
+  return "Good. I am looking for the most shareable, delightful version and the fastest path to a demo.";
+}
+
+function makePremiseChallenge(session) {
+  const allText = session.answers.map(item => item.answer).join(" ");
+  if (!allText) return "";
+  if (session.mode === "startup") {
+    return "Premise to challenge: the user wants a broad coach. Evidence may point to a narrower paid wedge around one painful moment. Prove the wedge before building the full platform.";
+  }
+  return "Premise to challenge: the useful version and the delightful version may not be the same. Build the version someone would show first.";
+}
+
+function makeAlternatives(session) {
+  if (session.answers.length < 4) return [];
+  if (session.mode === "startup") {
+    return [
+      { name: "Concierge wedge", summary: "Manually deliver the output to 5-10 users before automating the product." },
+      { name: "Self-serve tool", summary: "Build the smallest paste-in workflow with one strong output and export." },
+      { name: "Advisor workflow", summary: "Position it as a structured prep tool for office-hours or investor/customer calls." }
+    ];
+  }
+  return [
+    { name: "Weekend demo", summary: "Ship the most visible single-player version first." },
+    { name: "Share artifact", summary: "Make the output easy to send as a link, image, or markdown." },
+    { name: "Open-source seed", summary: "Release the core workflow and let builders extend the fun parts." }
+  ];
+}
+
+function synthesizeBrief(session) {
+  const byStage = Object.fromEntries(session.answers.map(item => [item.questionId, item.answer]));
+  return {
+    problemStatement: byStage.idea || "",
+    demandEvidence: byStage.demand || "",
+    statusQuo: byStage.statusQuo || "",
+    targetUser: byStage.human || byStage.show || "",
+    narrowestWedge: byStage.wedge || byStage.fastest || "",
+    successCriteria: byStage.observation || "",
+    distributionPlan: byStage.distribution || "",
+    recommendedApproach: session.mode === "startup" ? "Start with the narrowest paid/urgent wedge, then expand only after repeat usage." : "Start with the most showable demo, then polish the workflow people repeat."
+  };
 }
 
 function goBack() {
-  if (state.currentIndex > 0) {
-    state.currentIndex -= 1;
-    saveState();
-    render();
-    elements.answerInput.focus();
-  }
+  if (!state.answers.length) return;
+  const last = state.answers.pop();
+  state.currentQuestion = fallbackQuestions[state.mode].find(item => item.id === last.questionId) || state.currentQuestion;
+  state.currentFallbackIndex = fallbackIndexForQuestion(last.questionId);
+  state.complete = false;
+  state.lastCoachNote = "";
+  saveState();
+  render();
+  elements.answerInput.value = last.answer;
+  elements.answerInput.focus();
+}
+
+function switchMode(mode) {
+  if (mode === state.mode) return;
+  const hasWork = state.answers.length > 0;
+  if (hasWork && !confirm("Switch modes and reset this session?")) return;
+  Object.assign(state, defaultState(mode));
+  saveState();
+  render();
 }
 
 function resetSession() {
-  const shouldReset = confirm("Reset this refinement session?");
-  if (!shouldReset) return;
-  state.currentIndex = 0;
-  state.answers = {};
+  if (!confirm("Reset this refinement session?")) return;
+  Object.assign(state, defaultState(state.mode));
   saveState();
   elements.saveStatus.textContent = "";
   render();
 }
 
 function makeExport() {
-  const sections = stages.map(stage => {
-    const lines = stage.questions.map(question => {
-      const answer = state.answers[question.id] || "Unanswered";
-      return `### ${question.title}\n${answer}`;
-    });
-    return `## ${stage.name}\n${lines.join("\n\n")}`;
-  });
-
-  return [
-    "# ForgeRoom Product Brief",
+  const modeLabel = state.mode === "startup" ? "Startup" : "Builder";
+  const lines = [
+    `# Design: ${briefTitle()}`,
     "",
-    `Generated: ${new Date().toLocaleString()}`,
+    `Generated by ForgeRoom on ${new Date().toLocaleString()}`,
+    `Mode: ${modeLabel}`,
+    `Coach source: ${state.source === "ai" ? "Adaptive AI" : "Local fallback"}`,
+    "Status: DRAFT",
     "",
-    "## One-line Promise",
-    state.answers.launch || state.answers.idea || "Unanswered",
+    "## Problem Statement",
+    state.brief.problemStatement || answerById("idea") || "Unanswered",
     "",
-    "## Pressure Notes",
+    ...(state.mode === "startup" ? [
+      "## Demand Evidence",
+      state.brief.demandEvidence || answerById("demand") || "Unanswered",
+      "",
+      "## Status Quo",
+      state.brief.statusQuo || answerById("statusQuo") || "Unanswered",
+      "",
+      "## Target User & Narrowest Wedge",
+      [state.brief.targetUser, state.brief.narrowestWedge].filter(Boolean).join("\n\n") || "Unanswered"
+    ] : [
+      "## What Makes This Cool",
+      answerById("coolest") || state.brief.narrowestWedge || "Unanswered",
+      "",
+      "## Fastest Shareable Version",
+      answerById("fastest") || "Unanswered"
+    ]),
+    "",
+    "## Premises",
+    state.premiseChallenge || "Unanswered",
+    "",
+    "## Approaches Considered",
+    ...(state.alternatives.length ? state.alternatives.map(item => `### ${item.name}\n${item.summary}`) : ["Unanswered"]),
+    "",
+    "## Recommended Approach",
+    state.brief.recommendedApproach || "Unanswered",
+    "",
+    "## Open Questions",
     ...buildPressureList().map(item => `- ${item}`),
     "",
-    ...sections,
+    "## Success Criteria",
+    state.brief.successCriteria || "Unanswered",
     "",
-    "## Next Actions",
-    "- Turn the wedge into a prototype task list.",
-    "- Run the fastest real-world validation test.",
-    "- Review the leading failure mode before writing more code."
-  ].join("\n");
+    "## Distribution Plan",
+    state.brief.distributionPlan || "Unanswered",
+    "",
+    "## Answer Trail",
+    ...state.answers.map(item => `### ${item.questionTitle}\n${item.answer}`),
+    "",
+    "## The Assignment",
+    state.mode === "startup"
+      ? "Find one real user and test whether the narrowest wedge creates behavior, not compliments."
+      : "Build the smallest demo someone would actually show to another person."
+  ];
+  return lines.join("\n");
+}
+
+function briefTitle() {
+  const first = answerById("idea");
+  const match = first.match(/(?:building|make|create)\s+([^,.]{3,70})/i);
+  return match ? shorten(match[1], 70) : "ForgeRoom Session";
 }
 
 function openExport() {
@@ -432,7 +615,6 @@ function openExport() {
 async function copyExport() {
   elements.exportOutput.select();
   let copied = false;
-
   if (navigator.clipboard && window.isSecureContext) {
     try {
       await navigator.clipboard.writeText(elements.exportOutput.value);
@@ -441,7 +623,6 @@ async function copyExport() {
       copied = false;
     }
   }
-
   if (!copied) {
     try {
       copied = document.execCommand("copy");
@@ -449,7 +630,6 @@ async function copyExport() {
       copied = false;
     }
   }
-
   elements.copyExportButton.textContent = copied ? "Copied" : "Selected";
   window.setTimeout(() => {
     elements.copyExportButton.textContent = "Copy";
@@ -461,16 +641,19 @@ elements.backButton.addEventListener("click", goBack);
 elements.resetButton.addEventListener("click", resetSession);
 elements.exportButton.addEventListener("click", openExport);
 elements.copyExportButton.addEventListener("click", copyExport);
+elements.startupModeButton.addEventListener("click", () => switchMode("startup"));
+elements.builderModeButton.addEventListener("click", () => switchMode("builder"));
+elements.aiToggle.addEventListener("change", () => {
+  state.useAi = elements.aiToggle.checked;
+  saveState();
+  renderModes();
+});
 elements.useRecommendationButton.addEventListener("click", () => {
-  const question = currentQuestion();
-  const starter = state.answers[question.id] || question.recommendation;
-  elements.answerInput.value = starter;
+  elements.answerInput.value = state.currentQuestion.recommendation;
   elements.answerInput.focus();
 });
 elements.answerInput.addEventListener("keydown", event => {
-  if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
-    lockAnswer();
-  }
+  if ((event.metaKey || event.ctrlKey) && event.key === "Enter") lockAnswer();
 });
 
 render();
