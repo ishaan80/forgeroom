@@ -195,6 +195,8 @@ const elements = {
   exportOutput: document.querySelector("#exportOutput"),
   ideaCore: document.querySelector("#ideaCore"),
   nextButton: document.querySelector("#nextButton"),
+  previousAnswerBlock: document.querySelector("#previousAnswerBlock"),
+  previousAnswerText: document.querySelector("#previousAnswerText"),
   pressureList: document.querySelector("#pressureList"),
   progressBar: document.querySelector("#progressBar"),
   questionCount: document.querySelector("#questionCount"),
@@ -202,6 +204,7 @@ const elements = {
   questionWhy: document.querySelector("#questionWhy"),
   recommendedAnswer: document.querySelector("#recommendedAnswer"),
   resetButton: document.querySelector("#resetButton"),
+  saveStatus: document.querySelector("#saveStatus"),
   stageStrip: document.querySelector("#stageStrip"),
   useRecommendationButton: document.querySelector("#useRecommendationButton")
 };
@@ -257,6 +260,7 @@ function renderStages() {
 
 function renderQuestion() {
   const question = currentQuestion();
+  const previousQuestion = flattenedQuestions[state.currentIndex - 1];
   elements.currentStage.textContent = `${question.stage} - ${question.tone}`;
   elements.questionCount.textContent = `Question ${state.currentIndex + 1} of ${flattenedQuestions.length}`;
   elements.questionTitle.textContent = question.title;
@@ -264,7 +268,15 @@ function renderQuestion() {
   elements.recommendedAnswer.textContent = question.recommendation;
   elements.answerInput.value = state.answers[question.id] || "";
   elements.backButton.disabled = state.currentIndex === 0;
-  elements.nextButton.textContent = state.currentIndex === flattenedQuestions.length - 1 ? "Finish Brief" : "Lock Answer";
+  elements.nextButton.textContent = state.currentIndex === flattenedQuestions.length - 1 ? "Finish & Export" : "Save & Next";
+
+  if (previousQuestion && state.answers[previousQuestion.id]) {
+    elements.previousAnswerBlock.hidden = false;
+    elements.previousAnswerText.textContent = state.answers[previousQuestion.id];
+  } else {
+    elements.previousAnswerBlock.hidden = true;
+    elements.previousAnswerText.textContent = "";
+  }
 }
 
 function renderBrief() {
@@ -348,12 +360,20 @@ function lockAnswer() {
   }
 
   state.answers[question.id] = answer;
+  const wasFinalQuestion = state.currentIndex === flattenedQuestions.length - 1;
   if (state.currentIndex < flattenedQuestions.length - 1) {
     state.currentIndex += 1;
   }
   saveState();
   render();
+  elements.saveStatus.textContent = wasFinalQuestion
+    ? "Saved. Your product brief is ready."
+    : `Saved "${question.title}" and moved to the next question.`;
   elements.answerInput.focus();
+
+  if (wasFinalQuestion) {
+    openExport();
+  }
 }
 
 function goBack() {
@@ -371,6 +391,7 @@ function resetSession() {
   state.currentIndex = 0;
   state.answers = {};
   saveState();
+  elements.saveStatus.textContent = "";
   render();
 }
 

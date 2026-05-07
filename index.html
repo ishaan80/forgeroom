@@ -26,6 +26,7 @@
         <section class="stage-strip" id="stageStrip" aria-label="Refinement stages"></section>
 
         <section class="question-panel" aria-live="polite">
+          <p class="save-status" id="saveStatus" role="status"></p>
           <div class="question-meta">
             <span id="currentStage">Stage</span>
             <span id="questionCount">Question 1</span>
@@ -41,9 +42,13 @@
           </div>
           <label class="answer-label" for="answerInput">Your answer</label>
           <textarea id="answerInput" rows="7" placeholder="Write plainly. Specific beats impressive."></textarea>
+          <div class="previous-answer" id="previousAnswerBlock" hidden>
+            <span>Previous answer saved</span>
+            <p id="previousAnswerText"></p>
+          </div>
           <div class="question-actions">
             <button id="backButton" class="secondary-button" type="button">Back</button>
-            <button id="nextButton" class="primary-button" type="button">Lock Answer</button>
+            <button id="nextButton" class="primary-button" type="button">Save & Next</button>
           </div>
         </section>
       </section>

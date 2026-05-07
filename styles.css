@@ -178,6 +178,13 @@ h1 {
   padding: min(6vw, 58px);
 }
 
+.save-status {
+  min-height: 28px;
+  margin: 0 0 12px;
+  color: var(--accent-strong);
+  font-weight: 900;
+}
+
 .question-meta {
   display: flex;
   justify-content: space-between;
@@ -251,6 +258,28 @@ textarea:focus,
 button:focus-visible {
   outline: 3px solid rgba(29, 78, 216, 0.25);
   outline-offset: 2px;
+}
+
+.previous-answer {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid #b7ddd9;
+  border-radius: 6px;
+  background: #effdfb;
+}
+
+.previous-answer span {
+  display: block;
+  color: var(--accent-strong);
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.previous-answer p {
+  margin: 8px 0 0;
+  color: #134e4a;
+  line-height: 1.5;
 }
 
 .question-actions {
