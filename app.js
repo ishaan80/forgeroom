@@ -431,8 +431,26 @@ function openExport() {
 
 async function copyExport() {
   elements.exportOutput.select();
-  await navigator.clipboard.writeText(elements.exportOutput.value);
-  elements.copyExportButton.textContent = "Copied";
+  let copied = false;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(elements.exportOutput.value);
+      copied = true;
+    } catch {
+      copied = false;
+    }
+  }
+
+  if (!copied) {
+    try {
+      copied = document.execCommand("copy");
+    } catch {
+      copied = false;
+    }
+  }
+
+  elements.copyExportButton.textContent = copied ? "Copied" : "Selected";
   window.setTimeout(() => {
     elements.copyExportButton.textContent = "Copy";
   }, 1200);
